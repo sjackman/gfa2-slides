@@ -81,6 +81,7 @@ Things we take for granted
 
 + [ABySS](https://github.com/bcgsc/abyss)
 + [Bandage](https://rrwick.github.io/Bandage/)
++ [bcalm2](https://github.com/GATB/bcalm)
 + [bfgraph](https://github.com/pmelsted/bfgraph)
 + [Canu](https://github.com/marbl/canu/)
 + [fermi mag2gfa](https://github.com/lh3/mag2gfa)
