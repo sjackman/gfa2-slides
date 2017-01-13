@@ -9,6 +9,14 @@ clean:
 install-deps:
 	brew install pandoc
 
+publish: gfa2-slides.html
+	git checkout -B gh-pages
+	cp -a gfa2-slides.html index.html
+	git add index.html
+	git commit index.html -m 'Render index.html'
+	git push --force origin gh-pages
+	git checkout master
+
 %.html: %.md reveal.js/js/reveal.js
 	pandoc -st revealjs -V theme:sky -o $@ $<
 
