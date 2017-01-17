@@ -30,9 +30,6 @@ Shaun Jackman [\@sjackman][]
 [github.com/sjackman]: https://github.com/sjackman
 [sjackman.ca]: http://sjackman.ca
 
-Common file format
-================================================================================
-
 ## Common file format
 
 + Interoperable modular tools
