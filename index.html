@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Shaun D Jackman">
+  <meta name="dcterms.date" content="2017-01-18">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="graphical-fragment-assembly-gfa-2.0" class="slide level2">
+<h2>Graphical Fragment Assembly GFA 2.0</h2>
+<p>Shaun Jackman <a href="http://twitter.com/sjackman">@sjackman</a></p>
+<p>2017-01-18</p>
+<p><a href="https://sjackman.ca/gfa2-slides" class="uri">https://sjackman.ca/gfa2-slides</a></p>
+<p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="images/cc-by.png" alt="Creative Commons Attribution License" /></a></p>
+</section>
+<section id="shaun-jackman" class="slide level2">
+<h2>Shaun Jackman</h2>
+<div style="white-space: pre-line;"><a href="http://bcgsc.ca">BC Cancer Agency Genome Sciences Centre</a>
+Vancouver, Canada
+<a href="http://twitter.com/sjackman">@sjackman</a> | <a href="https://github.com/sjackman">github.com/sjackman</a> | <a href="http://sjackman.ca">sjackman.ca</a></div>
+<figure>
+<img src="images/sjackman.jpg" />
+</figure>
+</section>
+<section id="common-file-format" class="slide level2">
+<h2>Common file format</h2>
+<ul>
+<li>Interoperable modular tools</li>
+<li>Deduplication of effort</li>
+<li>Data visualization</li>
+</ul>
+</section>
+<section id="alignment" class="slide level2">
+<h2>Alignment</h2>
+<ul>
+<li>Alignment and variant calling is a pipeline of two stages</li>
+<li>Alignment reads FASTQ produces SAM/BAM</li>
+<li>Variant calling reads SAM/BAM produces VCF</li>
+</ul>
+</section>
+<section id="benefits" class="slide level2">
+<h2>Benefits</h2>
+<p>Things we take for granted</p>
+<ul>
+<li>Mix and match aligners and variant callers</li>
+<li>Support tools (samtools) shared by everyone</li>
+<li>Visualization tools (IGV) shared by everyone</li>
+<li>Troubleshooting intermediate stages</li>
+<li>All possible because of SAM/BAM</li>
+</ul>
+</section>
+<section id="assembly" class="slide level2">
+<h2>Assembly</h2>
+<ul>
+<li>Assembly is a pipeline<br />
+Overlap, Layout, Consensus</li>
+<li>Common input file format (FASTQ)</li>
+<li>Common output file format (FASTA)</li>
+<li>No common intermediate file format</li>
+</ul>
+</section>
+<section id="deduplication-of-effort" class="slide level2">
+<h2>Deduplication of effort</h2>
+<ul>
+<li>Developing a new variant caller doesn't require developing a new aligner</li>
+<li>Developing a new assembler shouldn't require developing a new read overlap tool</li>
+</ul>
+</section>
+<section id="gfa-1" class="slide level2">
+<h2>GFA 1</h2>
+<ul>
+<li>Started as a blog post by Heng Li</li>
+<li>Sequence overlap graph</li>
+<li>Vertices (segments) are contigs</li>
+<li>Edges (links) are their overlaps</li>
+<li>Tab separated format</li>
+<li>Extensible (optional tagged fields)</li>
+</ul>
+</section>
+<section id="implementations" class="slide level2">
+<h2>Implementations</h2>
+<ul>
+<li><a href="https://github.com/bcgsc/abyss">ABySS</a></li>
+<li><a href="https://rrwick.github.io/Bandage/">Bandage</a></li>
+<li><a href="https://github.com/GATB/bcalm">bcalm2</a></li>
+<li><a href="https://github.com/pmelsted/bfgraph">bfgraph</a></li>
+<li><a href="https://github.com/marbl/canu/">Canu</a></li>
+<li><a href="https://github.com/lh3/mag2gfa">fermi mag2gfa</a></li>
+<li><a href="https://github.com/edawson/gfakluge">gfakluge</a></li>
+<li><a href="https://github.com/sjackman/gfalint">gfalint</a></li>
+<li><a href="https://github.com/lh3/gfatools">gfatools</a></li>
+<li><a href="https://github.com/lmrodriguezr/gfa">lmrodriguezr/gfa</a></li>
+<li><a href="https://github.com/mcveanlab/mccortex">McCortex</a></li>
+<li><a href="https://github.com/lh3/miniasm">miniasm</a></li>
+<li><a href="https://github.com/ggonnella/RGFA">RGFA</a></li>
+<li><a href="https://github.com/ekg/vg">vg</a></li>
+<li><a href="https://github.com/medvedevgroup/TwoPaCo">TwoPaCo</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<figure>
+<img src="images/bandage.png" alt="Bandage https://rrwick.github.io/Bandage/" /><figcaption>Bandage <a href="https://rrwick.github.io/Bandage/" class="uri">https://rrwick.github.io/Bandage/</a></figcaption>
+</figure>
+</section>
+<section id="limitations" class="slide level2">
+<h2>Limitations</h2>
+<ul>
+<li>Intended for
+<ul>
+<li>Short read assembly</li>
+<li>Contig overlap graph (not reads)</li>
+</ul></li>
+<li>CIGAR unwieldy for long read alignment</li>
+<li>Links represent only dove-tail overlaps</li>
+</ul>
+</section>
+<section id="gfa-2" class="slide level2">
+<h2>GFA 2</h2>
+<ul>
+<li>Short and long read assembly</li>
+<li>Read overlap graph or contig overlap graph</li>
+<li>Arbitrary alignments (not just dovetail)
+<ul>
+<li>Correcting reads</li>
+<li>Identifying repeats</li>
+</ul></li>
+<li>CIGAR or compact trace alignments</li>
+<li>Gap edges and paths for scaffolding</li>
+</ul>
+</section>
+<section id="exciting-possibilities" class="slide level2">
+<h2>Exciting Possibilities</h2>
+<ul>
+<li>Mixing components of assembly pipelines</li>
+<li>Visualization of intermediate results<br />
+aids troubleshooting</li>
+<li>Align reads to a pan-genome</li>
+<li>Graph-aware gene annotation</li>
+<li>Innovation in modular assembly tools
+<ul>
+<li>Identify heterozygous contigs</li>
+<li>Identify misassembled contigs</li>
+</ul></li>
+<li>Modular scaffolding tools
+<ul>
+<li>One tool produces gap edges</li>
+<li>Another tool creates scaffolds</li>
+</ul></li>
+</ul>
+</section>
+<section id="xkcd-standards" class="slide level2">
+<h2>xkcd: Standards</h2>
+<figure>
+<img src="images/standards.png" alt="https://xkcd.com/927/" /><figcaption><a href="https://xkcd.com/927/" class="uri">https://xkcd.com/927/</a></figcaption>
+</figure>
+</section>
+<section><section id="fin" class="titleslide slide level1"><h1>fin</h1></section><section id="shaun-jackman-1" class="slide level2">
+<h2>Shaun Jackman</h2>
+<div style="white-space: pre-line;"><a href="http://bcgsc.ca">BC Cancer Agency Genome Sciences Centre</a>
+Vancouver, Canada
+<a href="http://twitter.com/sjackman">@sjackman</a> | <a href="https://github.com/sjackman">github.com/sjackman</a> | <a href="http://sjackman.ca">sjackman.ca</a></div>
+<p><strong>GFA Specification</strong><br />
+<a href="https://github.com/GFA-spec/GFA-spec" class="uri">https://github.com/GFA-spec/GFA-spec</a></p>
+<p><strong>Slides</strong><br />
+<a href="https://sjackman.ca/gfa2-slides" class="uri">https://sjackman.ca/gfa2-slides</a></p>
+<p><strong>Markdown source code</strong><br />
+<a href="https://github.com/sjackman/gfa2-slides" class="uri">https://github.com/sjackman/gfa2-slides</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
